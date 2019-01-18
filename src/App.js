@@ -12,8 +12,21 @@ import {
     AccountConnection,
     ChoiceList,
     SettingToggle,
-
 } from '@shopify/polaris';
+
+require('dotenv').config();
+
+// $query = $_GET;
+// $store = $query['shop'];
+
+const Http = new XMLHttpRequest();
+const url = "https://${username}:${password}@{shop}.myshopify.com/admin/shop.json"
+
+
+// const Shopify = require("shopify-api-node")
+// const shopify = new Shopify({
+//     shopName:
+// })
 
 class App extends Component {
     constructor(props) {
