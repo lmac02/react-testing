@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {
     Layout,
+    EmptyState,
     Page,
     FooterHelp,
     Card,
@@ -11,6 +12,7 @@ import {
     AccountConnection,
     ChoiceList,
     SettingToggle,
+
 } from '@shopify/polaris';
 
 class App extends Component {
@@ -26,93 +28,110 @@ class App extends Component {
     }
 
     render() {
-        const breadcrumbs = [
-            {content: 'Sample apps'},
-            {content: 'Create React App'},
-        ];
-        const primaryAction = {content: 'New product'};
-        const secondaryActions = [{content: 'Import', icon: 'import'}];
+        // const breadcrumbs = [
+        //     {content: 'Sample apps'},
+        //     {content: 'Create React App'},
+        // ];
+        const primaryAction = {content: 'Options', icon: 'chevronDown'};
+        // const secondaryActions = []; //{content: 'Import', icon: 'import'}
 
-        const choiceListItems = [
-            {label: 'I accept the Terms of Service', value: 'false'},
-            {label: 'I consent to receiving emails', value: 'false2'},
-        ];
+        // const choiceListItems = [
+        //     {label: 'I accept the Terms of Service', value: 'false'},
+        //     {label: 'I consent to receiving emails', value: 'false2'},
+        // ];
 
         return (
             <Page
-                title="Polaris"
-                breadcrumbs={breadcrumbs}
+                title="Wavebreak"
+                // breadcrumbs={breadcrumbs}
                 primaryAction={primaryAction}
-                secondaryActions={secondaryActions}
+                // secondaryActions={secondaryActions}
             >
                 <Layout>
+                    {/*<EmptyState*/}
+                        {/*heading = "Learn more about your store"*/}
+                        {/*image="https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg"*/}
+                        {/*action={{*/}
+                            {/*content: "Get Started",*/}
+                            {/*onAction: () => onpagehide,*/}
+                        {/*}}*/}
+                    {/*>*/}
+                    {/*</EmptyState>*/}
                     <Layout.AnnotatedSection
-                        title="Style"
-                        description="Customize the style of your checkout"
-                    >
-                        <SettingToggle
-                            action={{
-                                content: 'Customize Checkout',
-                            }}
-                        >
-                            Upload your store’s logo, change colors and fonts, and more.
-                        </SettingToggle>
-                    </Layout.AnnotatedSection>
-
-                    {this.renderAccount()}
-
-                    <Layout.AnnotatedSection
-                        title="Form"
-                        description="A sample form using Polaris components."
+                        title="Average Time Between Purchases"
+                        description="Last N Days"
                     >
                         <Card sectioned>
-                            <FormLayout>
-                                <FormLayout.Group>
-                                    <TextField
-                                        value={this.state.first}
-                                        label="First Name"
-                                        placeholder="Tom"
-                                        onChange={this.valueUpdater('first')}
-                                    />
-                                    <TextField
-                                        value={this.state.last}
-                                        label="Last Name"
-                                        placeholder="Ford"
-                                        onChange={this.valueUpdater('last')}
-                                    />
-                                </FormLayout.Group>
-
-                                <TextField
-                                    value={this.state.email}
-                                    label="Email"
-                                    placeholder="example@email.com"
-                                    onChange={this.valueUpdater('email')}
-                                />
-
-                                <TextField
-                                    multiline
-                                    label="How did you hear about us?"
-                                    placeholder="Website, ads, email, etc."
-                                    value={this.state.autoGrow}
-                                    onChange={this.valueUpdater('autoGrow')}
-                                />
-
-                                <ChoiceList
-                                    allowMultiple
-                                    choices={choiceListItems}
-                                    selected={this.state.checkboxes}
-                                    onChange={this.valueUpdater('checkboxes')}
-                                />
-
-                                <Button primary>Submit</Button>
-                            </FormLayout>
                         </Card>
+                        {/*<SettingToggle*/}
+                            {/*action={{*/}
+                                {/*content: 'Customize Checkout',*/}
+                            {/*}}*/}
+                        {/*>*/}
+                            {/*Upload your store’s logo, change colors and fonts, and more.*/}
+                        {/*</SettingToggle>*/}
                     </Layout.AnnotatedSection>
 
+                    {/*{this.renderAccount()}*/}
+
+                    <Layout.AnnotatedSection
+                        title="Average Customer Churn Duration"
+                        description="Average time after which a customer who has not made a purchase is unlikely to ever make another purchase"
+                    >
+                        <Card sectioned>
+                            {/*<FormLayout>*/}
+                                {/*<FormLayout.Group>*/}
+                                    {/*<TextField*/}
+                                        {/*value={this.state.first}*/}
+                                        {/*label="First Name"*/}
+                                        {/*placeholder="Tom"*/}
+                                        {/*onChange={this.valueUpdater('first')}*/}
+                                    {/*/>*/}
+                                    {/*<TextField*/}
+                                        {/*value={this.state.last}*/}
+                                        {/*label="Last Name"*/}
+                                        {/*placeholder="Ford"*/}
+                                        {/*onChange={this.valueUpdater('last')}*/}
+                                    {/*/>*/}
+                                {/*</FormLayout.Group>*/}
+
+                                {/*<TextField*/}
+                                    {/*value={this.state.email}*/}
+                                    {/*label="Email"*/}
+                                    {/*placeholder="example@email.com"*/}
+                                    {/*onChange={this.valueUpdater('email')}*/}
+                                {/*/>*/}
+
+                                {/*<TextField*/}
+                                    {/*multiline*/}
+                                    {/*label="How did you hear about us?"*/}
+                                    {/*placeholder="Website, ads, email, etc."*/}
+                                    {/*value={this.state.autoGrow}*/}
+                                    {/*onChange={this.valueUpdater('autoGrow')}*/}
+                                {/*/>*/}
+
+                                {/*<ChoiceList*/}
+                                    {/*allowMultiple*/}
+                                    {/*choices={choiceListItems}*/}
+                                    {/*selected={this.state.checkboxes}*/}
+                                    {/*onChange={this.valueUpdater('checkboxes')}*/}
+                                {/*/>*/}
+
+                                {/*<Button primary>Submit</Button>*/}
+                            {/*</FormLayout>*/}
+                        </Card>
+                    </Layout.AnnotatedSection>
+                    <Layout.AnnotatedSection
+                        title = "Most popular products"
+                        description = "Top N"
+                    >
+                        <Card sectioned>
+                        </Card>
+                    </Layout.AnnotatedSection>
                     <Layout.Section>
                         <FooterHelp>
-                            For more details on Polaris, visit our{' '}
-                            <Link url="https://polaris.shopify.com">style guide</Link>.
+                            For more information about app development, visit our{' '}
+                            <Link url="https://github.com/joshua-yan/react-testing">public repository</Link>.
                         </FooterHelp>
                     </Layout.Section>
                 </Layout>
